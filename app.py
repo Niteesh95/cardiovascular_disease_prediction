@@ -44,9 +44,9 @@ def predict():
         my_prediction = classifier.predict(final_features)
 
         if my_prediction:
-            return render_template('index.html', prediction="Oops! You must have CVD, consult a doctor.")
+            return render_template('index.html', prediction_text="Oops! You must have CVD, consult a doctor.")
         else:
-            return render_template('index.html', prediction="Yay! negative, no CVD.")
+            return render_template('index.html', prediction_text="Yay! negative, no CVD.")
 
     else:
         return render_template('index.html')
