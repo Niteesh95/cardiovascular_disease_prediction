@@ -16,7 +16,7 @@ app = Flask(__name__)
 pickle_in = open('cvd-prediction-svc-model.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -27,16 +27,29 @@ def predict():
     for rendering result on HTML GUI
     """
 
-    features = [x for x in request.form.values()]
-    sc = StandardScaler()
-    scaled_features = sc.fit_transform(features)
-    final_features = [np.array(scaled_features)]
-    my_prediction = classifier.predict(final_features)
+    if request.method == 'POST':
+        age = int(request.form['age'])
+        height = int(request.form['height'])
+        weight = int(request.form['weight'])
+        systolic_bp = int(request.form['systolic_bp'])
+        diastolic_bp = int(request.form['diastolic_bp'])
+        cholesterol = int(request.form['cholesterol'])
+        glucose = int(request.form['glucose'])
+        smoke = int(request.form['smoke'])
+        alcoholic = int(request.form['alcoholic'])
+        active = int(request.form['active'])
+        gender = int(request.form['gender'])
 
-    if my_prediction:
-        return render_template('index.html', prediction=my_prediction)
+        final_features = [[age,height,weight,systolic_bp,diastolic_bp,cholesterol,glucose,smoke,alcoholic,active,gender]]
+        my_prediction = classifier.predict(final_features)
+
+        if my_prediction:
+            return render_template('index.html', prediction="Oops! You must have CVD, consult a doctor.")
+        else:
+            return render_template('index.html', prediction="Yay! negative, no CVD.")
+    
     else:
-        return render_template('index.html', prediction=my_prediction)
+        return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
