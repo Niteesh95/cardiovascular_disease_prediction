@@ -9,6 +9,7 @@ from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import numpy as np
 import pickle
+from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 
@@ -27,7 +28,9 @@ def predict():
     """
 
     features = [x for x in request.form.values()]
-    final_features = [np.array(features)]
+    sc = StandardScaler()
+    scaled_features = sc.fit_transform(features)
+    final_features = [np.array(scaled_features)]
     my_prediction = classifier.predict(final_features)
 
     if my_prediction:
