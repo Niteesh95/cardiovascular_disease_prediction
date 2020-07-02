@@ -47,7 +47,7 @@ def predict():
             return render_template('index.html', prediction="Oops! You must have CVD, consult a doctor.")
         else:
             return render_template('index.html', prediction="Yay! negative, no CVD.")
-    
+
     else:
         return render_template('index.html')
 
