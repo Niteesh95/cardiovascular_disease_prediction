@@ -41,6 +41,7 @@ def predict():
         gender = int(request.form['gender'])
 
         final_features = [[age,gender,height,weight,systolic_bp,diastolic_bp,cholesterol,glucose,smoke,alcoholic,active]]
+        final_features = StandardScaler().fit_transform(final_features)
         my_prediction = classifier.predict(final_features)
 
         if my_prediction:
