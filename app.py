@@ -40,7 +40,7 @@ def predict():
         active = int(request.form['active'])
         gender = int(request.form['gender'])
 
-        final_features = [[age,height,weight,systolic_bp,diastolic_bp,cholesterol,glucose,smoke,alcoholic,active,gender]]
+        final_features = [[age,gender,height,weight,systolic_bp,diastolic_bp,cholesterol,glucose,smoke,alcoholic,active]]
         my_prediction = classifier.predict(final_features)
 
         if my_prediction:
