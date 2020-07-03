@@ -70,16 +70,3 @@ body {
 	padding: 20px;
 	background-image: linear-gradient(to right, orange , blue);
 }
-
-.results{
-    padding: 30px 0 0;
-	  flex: 1 0 auto;
-}
-
-.true{
-    color: #ff0000;
-}
-
-.false{
-    color: green;
-}
