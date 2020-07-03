@@ -12,5 +12,3 @@ pandas>=0.19
 jsonify==0.5
 sklearn==0.0
 requests==2.24.0
-render_template
-pickle
