@@ -36,11 +36,7 @@
           <br>
           <br>
           <h3>
-            {% if prediction==1 %}
-            <h1>Prediction: <span class='true'>"Oops! You must have CVD, consult a doctor."</span></h1>
-            {% elif prediction==0 %}
-            <h1>Prediction: <span class='true'>"Yay! negative, no CVD."</span></h1>
-            {% endif %}
+            {{ prediction }}
           </h3>
         </div>
 
