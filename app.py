@@ -16,7 +16,7 @@ app = Flask(__name__)
 pickle_in = open('cvd-prediction-svc-model.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def Home():
     return render_template('index.html')
 
@@ -50,4 +50,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
