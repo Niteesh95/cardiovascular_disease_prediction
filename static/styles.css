@@ -32,22 +32,24 @@ body {
 }
 
 .label{
-  text-align: center;
-  float: left;
-  margin-left: 610px;
-  font-family:  serif;
   font-size: 18px;
+  font-family:  serif;
+  display: inline-block;
+  text-align: right;
+  /* float: left; */
+  margin-left: 350px;
+  width: 150px
 
 }
 
 .form-input {
-		text-align: center;
-		float: right;
-	width: 450px;
-	height: 25px;
-	margin-bottom: 5px;
-  margin-right: 600px;
   border-color: black;
+		text-align: center;
+		/* float: right; */
+  	width: 350px;
+  	height: 25px;
+  	margin-bottom: 5px;
+    margin-right: 500px;
 }
 
 .my-cta-button{
